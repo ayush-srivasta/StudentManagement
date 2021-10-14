@@ -1,0 +1,18 @@
+button{
+   display: inline-block;
+    margin-left: 100%;
+    ;
+   
+}
+h2{
+    display: inline-block;
+     
+    margin-top: 1rem;
+}
+.white{
+    color: white;
+}
+h4{
+    margin-top: 5rem;
+    text-align: center;
+}

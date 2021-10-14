@@ -1,0 +1,105 @@
+{% extends 'users/base.html' %}
+{% block content %}
+<div class="container">
+    
+
+
+
+<body>
+  <form class="box" action="" method="post">
+    <p style="color: white;">{{error}}</p>
+     {% csrf_token %}
+    <h1>Login</h1>
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <input type="submit" value="Login">
+    <p style="color: white;">Dont have a account?</p>
+    <a href="{% url 'signup' %}">Signup</a>
+  </form>
+</body>
+
+</html>
+</div>
+<style>
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #1b2631;
+}
+
+.box {
+  width: 300px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #191919;
+  text-align: center;
+  border-radius: 20px 20px;
+}
+.box h1 {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500 ;
+  background: linear-gradient(to right, hsl(1 100% 50%), hsl(100 100% 50%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+.box input[type="text"],
+.box input[type="password"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 5px auto;
+  text-align: center;
+  border: 2px solid #d4ac0d;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.5s;
+}
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+  border-color: #a04000;
+  width: 250px;
+}
+.box input[type="text"]:hover,
+.box input[type="password"]:hover {
+  border-color: #a04000;
+}
+.box input[type="submit"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #d4ac0d;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.box input[type="submit"]:focus {
+  border-color: #d4ac0d;
+}
+.box input[type="submit"]:hover {
+  background: #d4ac0d;
+  border-radius: 24px;
+}
+
+a {
+  font-family: "Dank Mono", ui-monospace, monospace;
+  background: linear-gradient(to right, hsl(98 100% 62%), hsl(204 100% 59%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+</style>
+{% endblock content %}

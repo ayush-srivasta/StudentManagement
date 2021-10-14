@@ -1,0 +1,134 @@
+{% extends 'users/base.html' %}
+{% block content %}
+<div class="container">
+    
+
+
+
+<body>
+<h2 style="color:white;">Hello {{name}}</h2>
+  <form class="box" action="{% url 'verify' %}" method="post">
+
+     {% csrf_token %}
+  {% if teacher %}
+  <h3 style="color: white;">Select the subjects you teach</h3>
+  <select name="subject" id="" multiple>
+  {% for item in subject %}
+        <option value="{{item}}">{{item}}</option>
+ {% endfor %}
+    </select>
+    <h3 style="color: white;">Select the Year in which you teach</h3>
+    <select name="year" id="year">
+        {% for item in year%}
+        <option value="{{item}}">{{item}}</option>
+        {%endfor%}
+    </select>
+  {% endif %}
+  {% if not teacher %}
+    <input type="text" name="roolno" placeholder="Enter YourRoll NO" required>
+    
+    <h3 style="color: white;">Select the Year in which you Study</h3>
+    <select name="year" id="year" required>
+        {% for item in year%}
+        <option value="{{item}}">{{item}}</option>
+        {%endfor%}
+    </select>
+    <hr>
+    <h3 style="color: white;">Select the Departement in which you Study</h3>
+    <select name="department" id="department" required>
+        {% for item in department%}
+        <option value="{{item}}">{{item}}</option>
+        {%endfor%}
+    </select>
+<hr>
+  {% endif %}
+  <br>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+
+</html>
+</div>
+<style>
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #1b2631;
+}
+
+.box {
+  width: 300px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #191919;
+  text-align: center;
+  border-radius: 20px 20px;
+}
+.box h1 {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500 ;
+  background: linear-gradient(to right, hsl(1 100% 50%), hsl(100 100% 50%));
+  
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+.box input[type="text"],
+.box input[type="password"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 5px auto;
+  text-align: center;
+  border: 2px solid #d4ac0d;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.5s;
+}
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+  border-color: #a04000;
+  width: 250px;
+}
+.box input[type="text"]:hover,
+.box input[type="password"]:hover {
+  border-color: #a04000;
+}
+.box input[type="submit"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #d4ac0d;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.box input[type="submit"]:focus {
+  border-color: #d4ac0d;
+}
+.box input[type="submit"]:hover {
+  background: #d4ac0d;
+  border-radius: 24px;
+}
+
+a {
+  font-family: "Dank Mono", ui-monospace, monospace;
+  background: linear-gradient(to right, hsl(98 100% 62%), hsl(204 100% 59%));
+
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+</style>
+{% endblock content %}
